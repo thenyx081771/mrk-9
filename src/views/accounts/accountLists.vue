@@ -279,7 +279,7 @@ export default {
       searchName: "",
       serveUrl: sessionStorage.getItem("serveUrl"),
       isAdmin: JSON.parse(window.sessionStorage.getItem("userInfo")).isAdmin,
-      CountryList: ["Singapore", "Malaysia", "Cambodia", "Australia", "UK", "Thailand"],
+      CountryList: ["Singapore", "Malaysia", "Cambodia", "Australia", "UK", "Thailand","Indonesia"],
     };
   },
   mounted () {
