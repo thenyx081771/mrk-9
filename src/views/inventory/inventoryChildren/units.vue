@@ -41,6 +41,7 @@
                   <div>{{$t('units.UnitList')}}</div>
                 </el-col>
                 <el-col :span="12">
+                  <el-button size="mini" @click="copyUnitPriceToDev" v-if="(userInfo.type===3&&userInfo.isAdmin===0) && !(isCooperate != 0 && self == 0)">{{$t('Unit Price sync to developer')}}</el-button>
                   <el-button size="mini" :disabled=" (isCooperate != 0 && self == 0) ||  CMS_Edit_Price == 2 || CMS_Edit_Price == 1 " @click="EditPriceFn">Edit Price</el-button>
                   <el-button size="mini" :disabled="self == 0" @click="DeleteAll">Delete All Unit</el-button>
                   <el-button size="mini" @click="refreshUnit">{{$t('Refresh')}}</el-button>
@@ -473,6 +474,7 @@ export default {
       logCount: 0,
       logPage: 1,
       logPageSize: 5,
+      userInfo: JSON.parse(sessionStorage.getItem('userInfo')),
     }
   },
   mounted () {
@@ -831,6 +833,30 @@ export default {
       //刷新unit表格
       this.getUnitListData()
       this.queryUnitOpLog()
+    },
+    copyUnitPriceToDev () {
+      let _this = this
+      this.$confirm(
+        this.$t('Confirm'),
+        {
+          confirmButtonText: this.$t('alert.sure'),
+          cancelButtonText: this.$t('alert.cancel'),
+          type: 'warning',
+        }
+      ).then(() => {
+        this.$Geting(this.$api.copyUnitPriceToDev, {
+          projectId: this.id,
+          brokeId: _this.userInfo.brokeId
+        }).then((res) => {
+          if (res.code === '0') {
+            _this.$notify.success({
+              title: this.$t('alert.alert_success_title'),
+              message: this.$t('sync success'),
+            })
+          }
+        })
+      })
+
     },
     editUnit (row) {
       //编辑unit数据

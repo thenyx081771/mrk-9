@@ -374,5 +374,7 @@ Vue.api = Vue.prototype.$api = {
 
   updateBrokeProjectSet: '/broke-manager-service/brokeProject/updateBrokeProjectSet', //中介公司自定义信息更新
   queryBrokeProjectSet: '/broke-manager-service/brokeProject/queryBrokeProjectSet', //查询中介公司自定义信息
+
+  copyUnitPriceToDev: '/broke-manager-service/unit/copyUnitPriceToDev', //复制中介公司价格给开发商
 }
 
