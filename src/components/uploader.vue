@@ -187,6 +187,11 @@ export default {
             // console.log('456',this.fileData, self.progress.status)
           } else {
             self.progress.status = "exception";
+            self.$notify.error({
+            title: 'ERROR',
+            message: res.msg,
+            duration: 0
+          });
             // document.getElementById(this.fileId).value = "";
             // console.log('321', self.progress.status)
           }
@@ -204,6 +209,12 @@ export default {
 };
 </script>
 <style lang="less">
+
+.el-notification__content p{
+  overflow: auto;
+  max-height: 50vh;
+}
+
 .upload_section {
   display: inline-block;
   margin: 0 10px;
