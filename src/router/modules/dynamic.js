@@ -189,7 +189,6 @@ const dynamicRouter = [
       }
     ]
   },
-
   {
     path: '/SalesBooking',
     component: Layout,
@@ -229,6 +228,14 @@ const dynamicRouter = [
             type: ['Developers'],
             meta: {
               title: 'PDI List',
+            },
+          },
+          {
+            path: 'xAppCommision',
+            component: () => import('@/views/SalesBooking/ProjectSales/xAppCommision/index'),
+            name: 'xAppCommision',
+            meta: {
+              title: 'xAppCommision',
             },
           },
         ]
