@@ -371,5 +371,8 @@ Vue.api = Vue.prototype.$api = {
   deletePndDistrict: '/pnd-api/pdf/deletePndDistrict', //删除地区PDF图片
   deletePndProject: '/pnd-api/pdf/deletePndProject', //删除项目PDF图片
   queryProjectBySearch: '/pnd-api/project/queryProjectBySearch', //搜索项目列表
+
+  updateBrokeProjectSet: '/broke-manager-service/brokeProject/updateBrokeProjectSet', //中介公司自定义信息更新
+  queryBrokeProjectSet: '/broke-manager-service/brokeProject/queryBrokeProjectSet', //查询中介公司自定义信息
 }
 
