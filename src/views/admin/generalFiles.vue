@@ -33,6 +33,12 @@
             <div v-else>{{scope.row.title}}</div>
           </template>
         </el-table-column>
+        <el-table-column :label="$t('generalFiles.abbreviation')">
+          <template slot-scope="scope">
+            <el-input v-if="scope.$index === tableDataInit" v-model="abbreviation"></el-input>
+            <div v-else>{{scope.row.abbreviation}}</div>
+          </template>
+        </el-table-column>
         <el-table-column :label="$t('generalFiles.url')">
           <template slot-scope="scope">
             <div>{{hostUrl+scope.row.url}}</div>
@@ -88,6 +94,7 @@ export default {
       pdfsNum: 0,
       tableDataInit: -1,
       title: "",
+      abbreviation: "",
       description: "",
       group: "",
       hostUrl: sessionStorage.getItem("serveUrl") || ""
@@ -139,6 +146,7 @@ export default {
       this.$Post(this.$api.updateGeneralFile, {
         id: row.id,
         title: this.title,
+        abbreviation: this.abbreviation,
         url: `${this.hostUrl}${row.url}`,
         description: this.description,
         groupName: this.group
@@ -177,6 +185,7 @@ export default {
     edit(row, index) {
       this.tableDataInit = index;
       this.title = row.title;
+      this.abbreviation = row.abbreviation;
       this.description = row.description;
       this.group = row.groupName;
     },

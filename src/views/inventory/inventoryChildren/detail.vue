@@ -350,6 +350,11 @@
               <el-input class="width_300px" v-model="detailForm.abbreviation"></el-input>
             </el-form-item>
           </el-col>
+          <el-col :span="12">
+            <el-form-item label="report abbreviation" prop="reportAbbreviation">
+              <el-input class="width_300px" v-model="detailForm.reportAbbreviation"></el-input>
+            </el-form-item>
+          </el-col>
 
         </el-row>
 
@@ -766,6 +771,7 @@ export default {
         snapshotLogo: [],
         facilitiesMap: [],
         abbreviation: '',
+        reportAbbreviation: '',
         mapLevel: 17
       },
       nearbyList: {

@@ -435,6 +435,7 @@
     "pdfList": "PDF List",
     "refresh": "Refresh",
     "title": "Title",
+    "abbreviation": "abbreviation",
     "url": "URL",
     "description": "Description",
     "delete": "Delete",
