@@ -106,7 +106,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-          
+
             <el-form-item prop="landSaleDate" :label="$t('land sales date')">
               <el-date-picker class="width_300px" value-format="timestamp" format="dd-MMM-yyyy" type="date" v-model="detailForm.landSaleDate"></el-date-picker>
             </el-form-item>
@@ -649,6 +649,7 @@ import uploader from '@/components/uploader'
 import tinymce from 'tinymce/tinymce'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import md5 from 'js-md5'
 export default {
   components: {
     editor,
@@ -764,7 +765,8 @@ export default {
         ecProjectCode: '',
         snapshotLogo: [],
         facilitiesMap: [],
-        abbreviation: ''
+        abbreviation: '',
+        mapLevel: 17
       },
       nearbyList: {
         subway_station: [],
@@ -1020,6 +1022,7 @@ export default {
         (res) => {
           if (res.code == 0) {
             this.detailForm = Object.assign({ snapshotLogo: [] }, res.datas.project)
+            this.mapImgZoom = this.detailForm.mapLevel ? this.detailForm.mapLevel : 17
             this.detailForm.snapshotLogo = this.detailForm.snapshotLogo
             let nearbyList = this.nearbyList
             let facilitiesMap = JSON.parse(this.detailForm.facilitiesMap)
@@ -1217,6 +1220,7 @@ export default {
         submitData.areaLevel3 = submitData.address[2]
       }
       submitData.facilitiesMap = JSON.stringify(facilitiesMap)
+      submitData.mapLevel = this.mapImgZoom
       return submitData
     },
     //保存前先读取服务端返回的富文本编辑器里面的内容，晒选出图片存在缓存中
