@@ -1273,9 +1273,9 @@ export default {
       let self = this
       let imgsrc = ""
       if (this.detailForm.galleryLongitude) {
-        imgsrc = 'https://maps.googleapis.com/maps/api/staticmap?zoom=' + this.mapImgZoom + '&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C' + this.detailForm.latitude + ',' + this.detailForm.longitude + '&markers=color:green%7Clabel:G%7C' + this.detailForm.galleryLatitude + ',' + this.detailForm.galleryLongitude + '&key=AIzaSyBFhANESE0lhBp-tSPbOy8FI6FfIiuPR0s';
+        imgsrc = 'https://maps.googleapis.com/maps/api/staticmap?zoom=' + this.mapImgZoom + '&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C' + this.detailForm.latitude + ',' + this.detailForm.longitude + '&markers=color:green%7Clabel:G%7C' + this.detailForm.galleryLatitude + ',' + this.detailForm.galleryLongitude + '&key=AIzaSyB9l39SCvlg5hBaB7V-16gG0R9BvH0oPCU';
       } else {
-        imgsrc = 'https://maps.googleapis.com/maps/api/staticmap?zoom=' + this.mapImgZoom + '&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C' + this.detailForm.latitude + ',' + this.detailForm.longitude + '&key=AIzaSyBFhANESE0lhBp-tSPbOy8FI6FfIiuPR0s';
+        imgsrc = 'https://maps.googleapis.com/maps/api/staticmap?zoom=' + this.mapImgZoom + '&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C' + this.detailForm.latitude + ',' + this.detailForm.longitude + '&key=AIzaSyB9l39SCvlg5hBaB7V-16gG0R9BvH0oPCU';
       }
       let image = new Image();
       // 解决跨域 Canvas 污染问题
@@ -1325,7 +1325,7 @@ export default {
       let head = document.head || document.getElementsByTagName("head")[0];
       let scriptDiv = document.createElement("script"); //  AIzaSyAxuq9fNMvpfLt8gwUa1o9djUYr3XwIw8I
       scriptDiv.src =
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBFhANESE0lhBp-tSPbOy8FI6FfIiuPR0s&libraries=places";
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyB9l39SCvlg5hBaB7V-16gG0R9BvH0oPCU&libraries=places";
       head.appendChild(scriptDiv);
     },
     /**
